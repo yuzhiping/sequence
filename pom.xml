@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.hexsmith</groupId>
+  <artifactId>sequence</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>sequence</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>hexsmith</name>
+            <email>yuzhiping140103@hotmail.com</email>
+        </developer>
+    </developers>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+    </dependencies>
+
+  <build>
+      <sourceDirectory>src/main/java</sourceDirectory>
+      <resources>
+          <resource>
+              <directory>resources</directory>
+          </resource>
+      </resources>
+      <plugins>
+          <plugin>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.7.0</version>
+              <configuration>
+                  <source>${maven.compiler.source}</source>
+                  <target>${maven.compiler.target}</target>
+                  <encoding>${project.build.sourceEncoding}</encoding>
+              </configuration>
+          </plugin>
+          <plugin>
+              <artifactId>maven-gpg-plugin</artifactId>
+              <version>1.6</version>
+              <executions>
+                  <execution>
+                      <phase>verify</phase>
+                      <goals>
+                          <goal>sign</goal>
+                      </goals>
+                      <configuration>
+                          <keyname>088FF81AF90196C81000</keyname>
+                          <passphrase>xxx</passphrase>
+                      </configuration>
+                  </execution>
+              </executions>
+          </plugin>
+          <plugin>
+              <artifactId>maven-source-plugin</artifactId>
+              <version>3.0.1</version>
+              <executions>
+                  <execution>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>jar-no-fork</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+          <plugin>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>3.0.0</version>
+              <executions>
+                  <execution>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>jar</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+      </plugins>
+  </build>
+</project>
